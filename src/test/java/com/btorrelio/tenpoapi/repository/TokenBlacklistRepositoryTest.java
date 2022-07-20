@@ -1,4 +1,4 @@
-package com.btorrelio.tenpoapi.mapper.repository;
+package com.btorrelio.tenpoapi.repository;
 
 import com.btorrelio.tenpoapi.repository.TokenBlacklistRepository;
 import org.junit.jupiter.api.Test;
