@@ -11,6 +11,8 @@ services:
   dbpostgresql:
     image: postgres:13.1-alpine
     container_name: dbpostgresql
+    volumes:
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
     ports:
       - "5432:5432"
     environment:
