@@ -1,0 +1,31 @@
+INSERT INTO users(id,username, password) values (1, 'Admin', '$2a$10$KOyJ8ZJTpvJQfM5Gz6oFxe2apUU3R544GzPDoSWNXJDWBSeNkRctO');
+INSERT INTO users(id,username, password) values (2, 'User', '$2a$10$t7foYE5gPTNwDwH4VEL.6eiy3QDlsP2ygs08OKB/M0TX2D83JZwO6');
+
+INSERT INTO token_blacklist(id,token,created_at) values (1,'eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdHJpbmciLCJleHAiOjE2NTgxNzc1ODEsImlhdCI6MTY1ODE1OTU4MX0.seaa7trTd7XL-TyycyowEuHRGVIj-KMN86B3r-OPYszDVLz95LgC3vF9Tk9mFw-gVbkZ5laujxRj0zycia4RZQ','2022-07-18 12:54:17.736205');
+
+INSERT INTO endpoint_histories VALUES (1, '2022-07-17 02:03:48.839874', 'POST', '/api/user/login', '{"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdHJpbmciLCJleHAiOjE2NTgwNTIyMjgsImlhdCI6MTY1ODAzNDIyOH0.3LKLp9-5iUuqIfKfVnt5VfdtXhislEF5bjsajIz4htwiHuIJ5aSHGKVibP0nAaNSjYd3JAM2b_5yaD1qEvj_Sw","timeStamp":"2022-07-17T02:03:48.8178424"}');
+INSERT INTO endpoint_histories VALUES (2, '2022-07-17 02:47:19.079933', 'POST', '/api/user/login', '{"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdHJpbmciLCJleHAiOjE2NTgwNTQ4MzksImlhdCI6MTY1ODAzNjgzOX0.nh28xmW0t6LgF4u60xxXxKG0l1CsJAqQW4FA0TPsEDNadnXiL9ipCRdpLO4ywVhVWPcKi2paLIoyDQQkS0eCbQ","timeStamp":"2022-07-17T02:47:19.0709336"}');
+INSERT INTO endpoint_histories VALUES (3, '2022-07-17 02:55:58.727858', 'POST', '/api/user/login', '{"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdHJpbmciLCJleHAiOjE2NTgwNTUzNTgsImlhdCI6MTY1ODAzNzM1OH0.99nB73P9MOyHQYmGxXLypLd4J5hilai995hkn-QzcjlTlzLforRD5a4b_ljWXh3__aPDz95DXB24lRcbI2wJog","timeStamp":"2022-07-17T02:55:58.7189035"}');
+INSERT INTO endpoint_histories VALUES (4, '2022-07-17 02:59:27.573348', 'POST', '/api/user/login', '{"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdHJpbmciLCJleHAiOjE2NTgwNTU1NjcsImlhdCI6MTY1ODAzNzU2N30.KcY39zqTMiB9NRhUjm7V75nnmH-GCHnyfiAju-WXRxrvFCC3jb06bqSDir4uXuTq3E57vTVK6Z-wCvMHXCQ60w","timeStamp":"2022-07-17T02:59:27.5723503"}');
+INSERT INTO endpoint_histories VALUES (5, '2022-07-17 03:18:11.552898', 'POST', '/api/user/signup', '[{"id":7,"username":"brunotorrelio"},{"id":7,"username":"brunotorrelio"}]');
+INSERT INTO endpoint_histories VALUES (6, '2022-07-17 03:31:57.478056', 'GET', '/api/calculator/addition', '{"number1":11,"number2":12,"result":23}');
+INSERT INTO endpoint_histories VALUES (7, '2022-07-17 12:20:21.0793', 'GET', '/api/calculator/addition', '{"number1":12,"number2":11,"result":23}');
+INSERT INTO endpoint_histories VALUES (8, '2022-07-17 12:20:28.592588', 'GET', '/api/calculator/addition', '{"number1":12.5,"number2":11,"result":23.5}');
+INSERT INTO endpoint_histories VALUES (9, '2022-07-17 17:42:31.117282', 'GET', '/api/calculator/addition', '{"number1":12.5,"number2":11,"result":23.5}');
+INSERT INTO endpoint_histories VALUES (10, '2022-07-17 23:08:42.0302', 'POST', '/api/user/login', '{"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdHJpbmciLCJleHAiOjE2NTgxMjgxMjEsImlhdCI6MTY1ODExMDEyMX0.F2jXa4a1PcQDWgAa5ygUi5CBxSsw3gwnFLxYvjh5vFd60CWWfF5sHUywFYfI6ILVFb4zpMm41doUnrxLIDqEdg","timeStamp":"2022-07-17T23:08:42.0222363"}');
+INSERT INTO endpoint_histories VALUES (11, '2022-07-18 00:26:42.664439', 'GET', '/api/calculator/addition', '{"number1":12.5,"number2":10,"result":22.5}');
+INSERT INTO endpoint_histories VALUES (12, '2022-07-18 00:27:02.901171', 'GET', '/api/calculator/addition', '{"number1":1,"number2":1,"result":2}');
+INSERT INTO endpoint_histories VALUES (13, '2022-07-18 00:31:54.05543', 'GET', '/api/calculator/addition', '{"number1":1,"number2":2,"result":3}');
+INSERT INTO endpoint_histories VALUES (14, '2022-07-18 00:37:37.853137', 'GET', '/api/calculator/addition', '{"number1":2,"number2":2,"result":4}');
+INSERT INTO endpoint_histories VALUES (15, '2022-07-18 12:53:01.92968', 'POST', '/api/user/login', '{"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdHJpbmciLCJleHAiOjE2NTgxNzc1ODEsImlhdCI6MTY1ODE1OTU4MX0.seaa7trTd7XL-TyycyowEuHRGVIj-KMN86B3r-OPYszDVLz95LgC3vF9Tk9mFw-gVbkZ5laujxRj0zycia4RZQ","timeStamp":"2022-07-18T12:53:01.9206809"}');
+INSERT INTO endpoint_histories VALUES (16, '2022-07-18 12:53:26.146405', 'GET', '/api/calculator/addition', '{"number1":1,"number2":2,"result":3}');
+INSERT INTO endpoint_histories VALUES (17, '2022-07-18 12:54:17.744599', 'POST', '/api/user/signoff', '');
+INSERT INTO endpoint_histories VALUES (18, '2022-07-18 12:55:22.374836', 'POST', '/api/user/login', '{"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdHJpbmciLCJleHAiOjE2NTgxNzc3MjIsImlhdCI6MTY1ODE1OTcyMn0.yY03V35Eh3w_KtjI-KrTGSkGbM6_7F0gl4anofFCrQquqA7eY4yOwHzeK5VnrHgaW1zVSLeDFMSX1Ta9A7CF2Q","timeStamp":"2022-07-18T12:55:22.3738324"}');
+INSERT INTO endpoint_histories VALUES (19, '2022-07-18 12:55:40.524758', 'GET', '/api/calculator/addition', '{"number1":1,"number2":2,"result":3}');
+INSERT INTO endpoint_histories VALUES (20, '2022-07-18 23:36:38.503763', 'POST', '/api/user/login', '{"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdHJpbmciLCJleHAiOjE2NTgyMTYxOTgsImlhdCI6MTY1ODE5ODE5OH0.U4q31qiKpy1pQT8_dPMCJdeaMZuaeW6O8sA8yl32fsOZXrKaiS2H5pfds53rrDQomHeM5KCPqd0TVXsKx5c4Iw","timeStamp":"2022-07-18T23:36:38.4907137"}');
+INSERT INTO endpoint_histories VALUES (21, '2022-07-18 23:36:57.010179', 'GET', '/api/calculator/addition', '{"number1":1,"number2":2,"result":3}');
+INSERT INTO endpoint_histories VALUES (22, '2022-07-18 23:37:16.582695', 'GET', '/api/calculator/addition', '{"number1":2,"number2":-2,"result":0}');
+INSERT INTO endpoint_histories VALUES (23, '2022-07-18 23:51:15.542495', 'POST', '/api/user/login', '{"token":"eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdHJpbmciLCJleHAiOjE2NTgyMTcwNzUsImlhdCI6MTY1ODE5OTA3NX0.HYcUC8mO5ahVENOM8biono2SQLQDyO-ZiEPZ_DPFc7Hgtd0kiECsA-KtZtR6mpZjHbunwbY72QYma795jvcuEw","timeStamp":"2022-07-18T23:51:15.5214985"}');
+INSERT INTO endpoint_histories VALUES (24, '2022-07-18 23:51:35.545742', 'GET', '/api/calculator/addition', '{"number1":2,"number2":10,"result":12}');
+INSERT INTO endpoint_histories VALUES (25, '2022-07-19 21:59:56.213059', 'POST', '/api/user/signup', '{"id":30,"username":"Admin"}');
+INSERT INTO endpoint_histories VALUES (26, '2022-07-19 22:00:04.221075', 'POST', '/api/user/signup', '{"id":32,"username":"User"}');

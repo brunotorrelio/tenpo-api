@@ -3,6 +3,7 @@ package com.btorrelio.tenpoapi.service.impl;
 import com.btorrelio.tenpoapi.entity.TokenBlacklist;
 import com.btorrelio.tenpoapi.repository.TokenBlacklistRepository;
 import com.btorrelio.tenpoapi.service.JwtService;
+import com.btorrelio.tenpoapi.util.DateTimeUtil;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
@@ -23,12 +24,15 @@ import java.util.function.Function;
 @Service
 public class JwtServiceImpl implements JwtService {
 
-    public static final long JWT_TOKEN_VALIDITY = 5 * 60 * 60;
+    public static final long JWT_TOKEN_VALIDITY = 60 * 60; // 1 hour
 
     private final TokenBlacklistRepository tokenBlacklistRepository;
 
-    public JwtServiceImpl(TokenBlacklistRepository tokenBlacklistRepository) {
+    private final DateTimeUtil dateTimeUtil;
+
+    public JwtServiceImpl(TokenBlacklistRepository tokenBlacklistRepository, DateTimeUtil dateTimeUtil) {
         this.tokenBlacklistRepository = tokenBlacklistRepository;
+        this.dateTimeUtil = dateTimeUtil;
     }
 
     @Value("${jwt.secret}")
@@ -54,7 +58,7 @@ public class JwtServiceImpl implements JwtService {
 
     private Boolean isTokenExpired(String token) {
         final Date expiration = getExpirationDateFromToken(token);
-        return expiration.before(new Date());
+        return expiration.before(dateTimeUtil.getDateNow());
     }
 
     @Override
@@ -65,8 +69,8 @@ public class JwtServiceImpl implements JwtService {
 
     private String doGenerateToken(Map<String, Object> claims, String subject) {
 
-        return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(new Date(System.currentTimeMillis()))
-                .setExpiration(new Date(System.currentTimeMillis() + JWT_TOKEN_VALIDITY*1000)).signWith(SignatureAlgorithm.HS512, secretKey).compact();
+        return Jwts.builder().setClaims(claims).setSubject(subject).setIssuedAt(dateTimeUtil.getDateNow())
+                .setExpiration(dateTimeUtil.getDateNowAfterMillis(JWT_TOKEN_VALIDITY*1000)).signWith(SignatureAlgorithm.HS512, secretKey).compact();
     }
 
     @Override

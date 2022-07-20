@@ -31,7 +31,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     private final UserRepository userRepository;
 
-    private final PasswordEncoder bcryptEncoder;
+    private final PasswordEncoder passwordEncoder;
 
     private final UserMapper userMapper;
 
@@ -39,10 +39,10 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
     private final JwtService jwtService;
 
-    public UserServiceImpl(UserRepository userRepository, @Lazy PasswordEncoder bcryptEncoder, UserMapper userMapper,
+    public UserServiceImpl(UserRepository userRepository, @Lazy PasswordEncoder passwordEncoder, UserMapper userMapper,
                            @Lazy AuthenticationManager authenticationManager, JwtService jwtService) {
         this.userRepository = userRepository;
-        this.bcryptEncoder = bcryptEncoder;
+        this.passwordEncoder = passwordEncoder;
         this.userMapper = userMapper;
         this.authenticationManager = authenticationManager;
         this.jwtService = jwtService;
@@ -91,7 +91,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
         try {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(username, password));
         } catch (BadCredentialsException e) {
-            throw new UnauthorizedException("INVALID_CREDENTIALS", e);
+            throw new UnauthorizedException("Invalid credentials", e);
         }
     }
 
@@ -100,7 +100,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
     public UserDto save(UserDto userDto) {
         log.info("Saving user with username: {}", userDto.getUsername());
         User user = userMapper.dto2Entity(userDto);
-        user.setPassword(bcryptEncoder.encode(userDto.getPassword()));
+        user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 
         User newUser = userRepository.save(user);
         return userMapper.entity2Dto(newUser);

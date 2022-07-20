@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 import java.time.LocalDateTime;
-import java.util.List;
 import java.util.stream.Collectors;
 
 @Slf4j
@@ -24,6 +23,10 @@ public class EndpointHistoryServiceImpl implements EndpointHistoryService {
     private final EndpointHistoryRepository endpointHistoryRepository;
 
     private final EndpointHistoryMapper endpointHistoryMapper;
+
+    private final Integer PAGE_DEFAULT_VALUE = 0;
+
+    private final Integer ROW_DEFAULT_VALUE = 10;
 
     @Autowired
     public EndpointHistoryServiceImpl(EndpointHistoryRepository endpointHistoryRepository, EndpointHistoryMapper endpointHistoryMapper) {
@@ -44,11 +47,15 @@ public class EndpointHistoryServiceImpl implements EndpointHistoryService {
     }
 
     @Override
-    public PaginationDto<List<EndpointHistoryDto>> getAll(Integer page, Integer rows) {
+    public PaginationDto<EndpointHistoryDto> getAll(Integer page, Integer rows) {
+        page = page == null ? PAGE_DEFAULT_VALUE : page;
+        rows = rows == null ? ROW_DEFAULT_VALUE : rows;
+
         log.info("getting endpoints history with page: {} and rows: {}", page, rows);
+
         Page<EndpointHistory> result = endpointHistoryRepository.findAll(PageRequest.of(page, rows));
 
-        PaginationDto<List<EndpointHistoryDto>> dto = new PaginationDto<>();
+        PaginationDto<EndpointHistoryDto> dto = new PaginationDto<>();
         dto.setPage(page);
         dto.setRows(rows);
         dto.setTotalPages(result.getTotalPages());

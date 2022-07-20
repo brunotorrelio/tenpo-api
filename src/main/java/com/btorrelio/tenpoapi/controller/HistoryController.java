@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.validation.constraints.NotNull;
-import java.util.List;
 
 @Tag(name = "Endpoints History")
 @RestController
@@ -26,7 +25,7 @@ public class HistoryController {
     }
 
     @GetMapping
-    public ResponseEntity<PaginationDto<List<EndpointHistoryDto>>> get(
+    public ResponseEntity<PaginationDto<EndpointHistoryDto>> getAll(
             @RequestParam @NotNull Integer page,
             @RequestParam @NotNull Integer rows
     ) {
