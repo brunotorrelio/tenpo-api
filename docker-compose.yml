@@ -18,4 +18,4 @@ services:
     environment:
       - POSTGRES_PASSWORD=postgres
       - POSTGRES_USER=postgres
-      - POSTGRES_DB=tenpo_db
+      - POSTGRES_DB=calculator_db
