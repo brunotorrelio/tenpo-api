@@ -60,6 +60,16 @@ public class GlobalExceptionHandler {
 
     }
 
+    @ResponseStatus(HttpStatus.UNAUTHORIZED)
+    @ExceptionHandler(UnauthorizedException.class)
+    public ResponseEntity<ErrorResponse> handleUnauthorizedException(UnauthorizedException ex) {
+        log.error("Error UNAUTHORIZED",ex);
+        ErrorResponse errorResponse = new ErrorResponse(ex.getMessage());
+
+        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body(errorResponse);
+
+    }
+
     @ResponseStatus(HttpStatus.CONFLICT)
     @ExceptionHandler(IllegalStateException.class)
     public ResponseEntity<ErrorResponse> handleIllegalStateException(IllegalStateException ex) {
