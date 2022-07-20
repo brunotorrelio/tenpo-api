@@ -37,3 +37,4 @@ http://localhost:8080/api/swagger-ui/index.html
 - Para el cierre de sesión del usuario se utiliza como estrategia una blacklist de tokens en la base de datos. Al cerrar sesión con
  un token, este es agregado en la blacklist para que quede inutilizable. Si el usuario quiere acceder con el mismo token,
  luego de haber cerrado sesión, el sistema responderá que el token es inválido.
+- El código tuene un 100 % de coverage de test unitarios a nivel clases y 82% a nivel métodos. 
