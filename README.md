@@ -4,9 +4,9 @@
 
 ### 1 - Ejecutar docker compose
 ``` shell
-> docker-compose up --build
+> docker-compose up
 ```
-Este comando realiza la siguientes acciones:
+Este comando realiza las siguientes acciones:
 - Levanta una base de datos PostgreSQL.
 - Crea el esquema de tablas para el sistema.
 - Inserta un usuario (username: Admin, password: Admin)
@@ -19,7 +19,7 @@ http://localhost:8080/api/swagger-ui/index.html
 
     2 - Iniciar sesión con el usuario creado o el usuario Admin usando el servicio POST /user/login
  
-    3 - El response del servicio anterior devolverá el token del usuario. Copiar el token y agregarlo en el dialog Authorize de Swagger
+    3 - El response del servicio de login devolverá el token del usuario. Copiar el token y agregarlo en el dialog Authorize de Swagger
 
 ### Servicios públicos
     - POST /user/signup
@@ -33,7 +33,7 @@ http://localhost:8080/api/swagger-ui/index.html
 ## Consideraciones técnicas
 
 - Se utiliza Bearer JWT como método de autenticación.
-- El sistema almacena todos los response de todos los endpoints exitosos (salvo del endpoint GET /history, que es el que se utiliza para consultar esta información)
+- El sistema almacena todos los response de todos los endpoints que fueron ejecutados exitosamente (a excepción del endpoint GET /history, que es el que se utiliza para consultar esta información)
 - Para el cierre de sesión del usuario se utiliza como estrategia una blacklist de tokens en la base de datos. Al cerrar sesión con
  un token, este es agregado en la blacklist para que quede inutilizable. Si el usuario quiere acceder con el mismo token,
  luego de haber cerrado sesión, el sistema responderá que el token es inválido.
